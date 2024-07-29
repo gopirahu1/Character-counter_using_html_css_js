@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAR-COUNTER</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            border-top: 10px solid rgb(146, 27, 14);
+            border-bottom: 10px solid rgb(146, 27, 14);
+            font-size: 30px;
+            text-align: center;
+            padding: 20px;
+            background-color: #9b4da2;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #text {
+            padding-top: 200px;
+            width: 90%;
+            height: 180px;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border-top: 5px solid rgb(146, 27, 14);
+            border-bottom: 5px solid rgb(146, 27, 14);
+            background-color: #8181ca;
+            border-radius: 5px;
+            color: black;
+        }
+        .count {
+            display: flex;
+            justify-content: space-between;
+        }
+        .counter, .rem {
+            padding: 20px;
+        }
+        label {
+            font-size: 24px;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .count p {
+            display: inline;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <label for="text">Real-Time Character Counter </label>
+        <input type="text" name="text" id="text" maxlength="50">
+        <div class="count">
+            <div class="counter">Total characters typed: <p id="charCount">0</p></div>
+            <div class="rem">Remaining space: <p id="charRem">50</p></div>
+        </div>
+    </div>
+    <script>
+        const textInput = document.getElementById('text');
+        const charCount = document.getElementById('charCount');
+        const charRem = document.getElementById('charRem');
+        const maxChars = 50;
+        textInput.addEventListener('input', () => {
+            const currentLength = textInput.value.length;
+            charCount.textContent = currentLength;
+            charRem.textContent = maxChars - currentLength;
+        });
+    </script>
+</body>
+</html>
